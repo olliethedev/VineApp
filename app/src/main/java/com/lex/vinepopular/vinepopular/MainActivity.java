@@ -1,9 +1,9 @@
 package com.lex.vinepopular.vinepopular;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setData() {
-        showFragment(PopularFragment.newInstance("",""));
+        showFragment(PopularFragment.newInstance());
     }
 
     public void showLoading(){

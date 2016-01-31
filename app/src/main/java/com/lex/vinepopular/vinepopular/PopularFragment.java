@@ -1,5 +1,6 @@
 package com.lex.vinepopular.vinepopular;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,39 +11,22 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.lex.vinepopular.vinepopular.databinding.FragmentPopularBinding;
 import com.lex.vinepopular.vinepopular.models.PopularVids;
+import com.lex.vinepopular.vinepopular.models.TestModel;
 
 
 public class PopularFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private TestModel testModel;
 
     public PopularFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PopularFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PopularFragment newInstance(String param1, String param2) {
+    public static PopularFragment newInstance() {
         PopularFragment fragment = new PopularFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        //set args
         return fragment;
     }
 
@@ -50,31 +34,37 @@ public class PopularFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            //get args
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_popular, container, false);
+        FragmentPopularBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_popular, container, false);
+        testModel = new TestModel();
+        testModel.setName("initial");
+        testModel.setImageUrl("http://developer.android.com/assets/images/android_logo.png");
+        binding.setTestObject(testModel);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        testModel.setName("download started...");
         ApiManager.getInstance().getPopularVids(new GsonRequest.RequestCompletion<PopularVids>() {
             @Override
             public void onResponse(PopularVids data) {
                 Toast.makeText(getContext(),"success",Toast.LENGTH_LONG).show();
                 Log.i("PopularFragment",data.toString());
+                testModel.setName("download finished");
             }
 
             @Override
             public void onError(VolleyError error) {
                 Toast.makeText(getContext(),"failed",Toast.LENGTH_LONG).show();
+                testModel.setName("download failed");
             }
         });
     }

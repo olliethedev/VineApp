@@ -1,7 +1,11 @@
 package com.lex.vinepopular.vinepopular.models;
 
-import com.google.gson.annotations.Expose;
+import android.databinding.BindingAdapter;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 import com.google.gson.annotations.SerializedName;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -16,6 +20,22 @@ public class PopularVids
     public Data data;
     public boolean success;
     public String error;
+
+    //Binding Adapters
+    @BindingAdapter({"imageUrl", "placeholder"})
+    public static void loadImage(ImageView imageView, String imageUrl, Drawable drawable) {
+        Picasso.with(imageView.getContext()).load(imageUrl).placeholder(drawable).into(imageView);
+    }
+
+    @Override
+    public String toString() {
+        return "PopularVids{" +
+                "code='" + code + '\'' +
+                ", data=" + data +
+                ", success=" + success +
+                ", error='" + error + '\'' +
+                '}';
+    }
 
     public class Loops
     {
@@ -64,8 +84,6 @@ public class PopularVids
         public int privateNum;
     }
 
-
-
     public class Likes
     {
         public int count;
@@ -77,7 +95,6 @@ public class PopularVids
         public int nextPage;
         public int size;
     }
-
 
     public class Record
     {
@@ -154,8 +171,7 @@ public class PopularVids
         }
     }
 
-    public class Data
-    {
+    public class Data {
         public int count;
         public String anchorStr;
         public List<Record> records;
@@ -178,15 +194,5 @@ public class PopularVids
                     ", size=" + size +
                     '}';
         }
-    }
-
-    @Override
-    public String toString() {
-        return "PopularVids{" +
-                "code='" + code + '\'' +
-                ", data=" + data +
-                ", success=" + success +
-                ", error='" + error + '\'' +
-                '}';
     }
 }

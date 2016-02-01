@@ -1,11 +1,6 @@
 package com.lex.vinepopular.vinepopular.models;
 
-import android.databinding.BindingAdapter;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-
 import com.google.gson.annotations.SerializedName;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,11 +16,6 @@ public class PopularVids
     public boolean success;
     public String error;
 
-    //Binding Adapters
-    @BindingAdapter({"imageUrl", "placeholder"})
-    public static void loadImage(ImageView imageView, String imageUrl, Drawable drawable) {
-        Picasso.with(imageView.getContext()).load(imageUrl).placeholder(drawable).into(imageView);
-    }
 
     @Override
     public String toString() {

@@ -5,7 +5,6 @@
     tools:context="com.lex.vinepopular.vinepopular.PopularFragment">
 
     <data>
-
         <variable
             name="record"
             type="com.lex.vinepopular.vinepopular.models.PopularVids.Record" />

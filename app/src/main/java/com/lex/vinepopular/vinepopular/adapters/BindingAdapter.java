@@ -12,9 +12,9 @@ import java.util.List;
 /**
  * Created by Oleksiy on 1/31/2016.
  */
-public class BindingAdapter<T> extends RecyclerView.Adapter<BindingAdapter.BindingViewHolder> {
+public class BindingAdapter extends RecyclerView.Adapter<BindingAdapter.BindingViewHolder> {
     private int layoutId;
-    private List<T> data;
+    private List data;
     private int bindingVariableId;
 
     public BindingAdapter(int layoutId, int bindingVariableId) {
@@ -22,7 +22,13 @@ public class BindingAdapter<T> extends RecyclerView.Adapter<BindingAdapter.Bindi
         this.bindingVariableId = bindingVariableId;
     }
 
-    public void setData(List<T> data) {
+    public BindingAdapter(List data, int layoutId, int bindingVariableId) {
+        this.layoutId = layoutId;
+        this.data = data;
+        this.bindingVariableId = bindingVariableId;
+    }
+
+    public void setData(List data) {
         this.data = data;
         notifyDataSetChanged();
     }

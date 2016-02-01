@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Oleksiy on 1/30/2016.
  */
-public class PopularVids
+public class PopularVidsModel
 {
 
     public String code;

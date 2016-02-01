@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Bindings {
     @android.databinding.BindingAdapter(value = {"items", "itemBinding", "layoutManager"})
-    public static void showItemsList(RecyclerView recyclerView, List<com.lex.vinepopular.vinepopular.models.PopularVids.Record> items, ItemBinder itemBinding, RecyclerView.LayoutManager layoutManager) {
+    public static void showItemsList(RecyclerView recyclerView, List items, ItemBinder itemBinding, RecyclerView.LayoutManager layoutManager) {
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new com.lex.vinepopular.vinepopular.adapters.BindingAdapter(items, itemBinding.getLayoutItemId(), itemBinding.getBindId()));

@@ -4,7 +4,7 @@ package com.lex.vinepopular.vinepopular.managers;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.lex.vinepopular.vinepopular.MyApplication;
-import com.lex.vinepopular.vinepopular.models.PopularVids;
+import com.lex.vinepopular.vinepopular.models.PopularVidsModel;
 import com.lex.vinepopular.vinepopular.requests.BaseRequest;
 
 
@@ -30,8 +30,8 @@ public class ApiManager {
      *
      * @param completion Class implementing this interface will receive completion information;
      */
-    public void getPopularVids(final BaseRequest.RequestCompletion<PopularVids> completion) {
-        BaseRequest<PopularVids> request = new BaseRequest<>(GET_POPULAR_URL, PopularVids.class, completion);
+    public void getPopularVids(final BaseRequest.RequestCompletion<PopularVidsModel> completion) {
+        BaseRequest<PopularVidsModel> request = new BaseRequest<>(GET_POPULAR_URL, PopularVidsModel.class, completion);
         getRequestQueue().add(request);
     }
     public RequestQueue getRequestQueue(){

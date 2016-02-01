@@ -13,7 +13,7 @@ import com.android.volley.VolleyError;
 import com.lex.vinepopular.vinepopular.adapters.BindingAdapter;
 import com.lex.vinepopular.vinepopular.databinding.FragmentPopularBinding;
 import com.lex.vinepopular.vinepopular.managers.ApiManager;
-import com.lex.vinepopular.vinepopular.models.PopularVids;
+import com.lex.vinepopular.vinepopular.models.PopularVidsModel;
 import com.lex.vinepopular.vinepopular.models.PopularVidsViewModel;
 import com.lex.vinepopular.vinepopular.requests.BaseRequest;
 
@@ -45,7 +45,7 @@ public class PopularFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_popular, container, false);
         viewModel = new PopularVidsViewModel();
-        binding.setViewModel(viewModel);
+        binding.setPopularVidsViewModel(viewModel);
         return binding.getRoot();
     }
 
@@ -55,11 +55,11 @@ public class PopularFragment extends BaseFragment {
     }
 
     private void loadData() {
-        ApiManager.getInstance().getPopularVids(new BaseRequest.RequestCompletion<PopularVids>() {
+        ApiManager.getInstance().getPopularVids(new BaseRequest.RequestCompletion<PopularVidsModel>() {
             @Override
-            public void onResponse(PopularVids data) {
+            public void onResponse(PopularVidsModel data) {
                 Log.i("PopularFragment", data.toString());
-                viewModel.popularVids.set(data);
+                viewModel.setPopularVids(data);
                 setupViewComplete();
             }
 

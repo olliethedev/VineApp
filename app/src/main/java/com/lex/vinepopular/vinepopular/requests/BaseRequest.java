@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular;
+package com.lex.vinepopular.vinepopular.requests;
 
 import android.util.Log;
 
@@ -13,28 +13,30 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Oleksiy on 1/30/2016.
  */
-public class GsonRequest<T> extends Request<T> {
+public class BaseRequest<T> extends Request<T> {
+    private final static String TAG = "GsonRequest";
+    private static final String API_KEY = "2RJ82cJEErmsh2jov7tcgoLtGsmfp1Kny0kjsnQzKixU4RuL3u";
     private final Gson gson = new Gson();
     private final Class<T> clazz;
     private final Map<String, String> headers;
     private final RequestCompletion<T> listener;
-    private final static String TAG = "GsonRequest";
 
-    public GsonRequest(String url, Class<T> clazz, Map<String, String> headers, final RequestCompletion<T> listener) {
+    public BaseRequest(String url, Class<T> clazz, final RequestCompletion<T> completionListener) {
         super(Method.GET, url, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                listener.onError(error);
+                completionListener.onError(error);
             }
         });
         this.clazz = clazz;
-        this.headers = headers;
-        this.listener = listener;
+        this.headers = getBaseHeaders();
+        this.listener = completionListener;
     }
 
     @Override
@@ -62,6 +64,17 @@ public class GsonRequest<T> extends Request<T> {
         } catch (JsonSyntaxException e) {
             return Response.error(new ParseError(e));
         }
+    }
+
+    public void addHeader(String key, String value) {
+        headers.put(key, value);
+    }
+
+    private Map<String, String> getBaseHeaders() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("X-Mashape-Key", API_KEY);
+        headers.put("Accept", "application/json");
+        return headers;
     }
     public interface RequestCompletion<T>{
         void onResponse(T data);

@@ -13,17 +13,17 @@ import java.util.List;
  * Created by Oleksiy on 1/31/2016.
  */
 public class BindingAdapter extends RecyclerView.Adapter<BindingAdapter.BindingViewHolder> {
-    private int layoutId;
+    private int itemLayoutId;
     private List data;
     private int bindingVariableId;
 
-    public BindingAdapter(int layoutId, int bindingVariableId) {
-        this.layoutId = layoutId;
+    public BindingAdapter(int itemLayoutId, int bindingVariableId) {
+        this.itemLayoutId = itemLayoutId;
         this.bindingVariableId = bindingVariableId;
     }
 
-    public BindingAdapter(List data, int layoutId, int bindingVariableId) {
-        this.layoutId = layoutId;
+    public BindingAdapter(List data, int itemLayoutId, int bindingVariableId) {
+        this.itemLayoutId = itemLayoutId;
         this.data = data;
         this.bindingVariableId = bindingVariableId;
     }
@@ -35,7 +35,7 @@ public class BindingAdapter extends RecyclerView.Adapter<BindingAdapter.BindingV
 
     @Override
     public BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new BindingViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), layoutId, parent, false).getRoot());
+        return new BindingViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), itemLayoutId, parent, false).getRoot());
     }
 
     @Override

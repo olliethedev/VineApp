@@ -12,8 +12,10 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.lex.vinepopular.vinepopular.adapters.BindingAdapter;
 import com.lex.vinepopular.vinepopular.databinding.FragmentPopularBinding;
+import com.lex.vinepopular.vinepopular.managers.ApiManager;
 import com.lex.vinepopular.vinepopular.models.PopularVids;
 import com.lex.vinepopular.vinepopular.models.PopularVidsViewModel;
+import com.lex.vinepopular.vinepopular.requests.BaseRequest;
 
 
 public class PopularFragment extends BaseFragment {
@@ -22,9 +24,7 @@ public class PopularFragment extends BaseFragment {
     private PopularVidsViewModel viewModel;
     private RecyclerView gridRecyclerView;
     private BindingAdapter adapter;
-    public PopularFragment() {
-        // Required empty public constructor
-    }
+
 
     public static PopularFragment newInstance() {
         PopularFragment fragment = new PopularFragment();
@@ -55,7 +55,7 @@ public class PopularFragment extends BaseFragment {
     }
 
     private void loadData() {
-        ApiManager.getInstance().getPopularVids(new GsonRequest.RequestCompletion<PopularVids>() {
+        ApiManager.getInstance().getPopularVids(new BaseRequest.RequestCompletion<PopularVids>() {
             @Override
             public void onResponse(PopularVids data) {
                 Log.i("PopularFragment", data.toString());

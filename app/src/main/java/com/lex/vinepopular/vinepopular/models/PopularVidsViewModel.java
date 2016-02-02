@@ -22,7 +22,7 @@ public class PopularVidsViewModel extends BaseObservable {
     private ItemBinder<PopularVidsModel> itemBinding;
 
     public PopularVidsViewModel() {
-        layoutManager.set(new GridLayoutManager(MyApplication.getContext(), 3));
+        layoutManager.set(new GridLayoutManager(MyApplication.getContext(), 1));
         itemBinding = new ItemBinder<>(R.layout.popular_vid_item, BR.recordViewModel);
     }
 

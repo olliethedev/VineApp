@@ -13,10 +13,10 @@ import java.util.List;
  */
 public class Bindings {
     @android.databinding.BindingAdapter(value = {"items", "itemBinding", "layoutManager"})
-    public static void showItemsList(RecyclerView recyclerView, List items, ItemBinder itemBinding, RecyclerView.LayoutManager layoutManager) {
+    public static <T> void showItemsList(RecyclerView recyclerView, List<T> items, ItemBinder<T> itemBinding, RecyclerView.LayoutManager layoutManager) {
 
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new com.lex.vinepopular.adapters.BindingAdapter(items, itemBinding.getLayoutItemId(), itemBinding.getBindId()));
+        recyclerView.setAdapter(new com.lex.vinepopular.adapters.BindingAdapter(items, itemBinding));
     }
 
     @android.databinding.BindingAdapter(value = {"imageUrl", "placeholder"}, requireAll = false)

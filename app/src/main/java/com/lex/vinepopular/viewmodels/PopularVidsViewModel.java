@@ -1,4 +1,4 @@
-package com.lex.vinepopular.models;
+package com.lex.vinepopular.viewmodels;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 
 import com.lex.vinepopular.MyApplication;
 import com.lex.vinepopular.adapters.ItemBinder;
+import com.lex.vinepopular.models.PopularVidsModel;
 import com.lex.vinepopular.vinepopular.BR;
 import com.lex.vinepopular.vinepopular.R;
 
@@ -19,7 +20,7 @@ import java.util.List;
 public class PopularVidsViewModel extends BaseObservable {
     public ObservableField<GridLayoutManager> layoutManager = new ObservableField<>();
     private PopularVidsModel popularVids;
-    private ItemBinder<PopularVidsModel> itemBinding;
+    private ItemBinder<RecordViewModel> itemBinding;
 
     public PopularVidsViewModel() {
         layoutManager.set(new GridLayoutManager(MyApplication.getContext(), 1));
@@ -27,11 +28,11 @@ public class PopularVidsViewModel extends BaseObservable {
     }
 
     @Bindable
-    public ItemBinder<PopularVidsModel> getItemBinding() {
+    public ItemBinder<RecordViewModel> getItemBinding() {
         return itemBinding;
     }
 
-    public void setItemBinding(ItemBinder<PopularVidsModel> itemBinding) {
+    public void setItemBinding(ItemBinder<RecordViewModel> itemBinding) {
         this.itemBinding = itemBinding;
         notifyPropertyChanged(BR.itemBinding);
     }

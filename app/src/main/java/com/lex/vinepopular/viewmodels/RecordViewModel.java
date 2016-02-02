@@ -1,8 +1,10 @@
-package com.lex.vinepopular.models;
+package com.lex.vinepopular.viewmodels;
 
 import android.databinding.ObservableField;
 import android.view.View;
 import android.widget.Toast;
+
+import com.lex.vinepopular.models.PopularVidsModel;
 
 /**
  * Created by Oleksiy on 1/31/2016.

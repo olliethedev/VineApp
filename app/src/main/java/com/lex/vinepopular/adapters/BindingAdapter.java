@@ -12,35 +12,28 @@ import java.util.List;
 /**
  * Created by Oleksiy on 1/31/2016.
  */
-public class BindingAdapter extends RecyclerView.Adapter<BindingAdapter.BindingViewHolder> {
-    private int itemLayoutId;
-    private List data;
-    private int bindingVariableId;
+public class BindingAdapter<T> extends RecyclerView.Adapter<BindingAdapter.BindingViewHolder> {
+    private List<T> data;
+    private ItemBinder<T> binding;
 
-    public BindingAdapter(int itemLayoutId, int bindingVariableId) {
-        this.itemLayoutId = itemLayoutId;
-        this.bindingVariableId = bindingVariableId;
-    }
-
-    public BindingAdapter(List data, int itemLayoutId, int bindingVariableId) {
-        this.itemLayoutId = itemLayoutId;
+    public BindingAdapter(List data, ItemBinder<T> binding) {
         this.data = data;
-        this.bindingVariableId = bindingVariableId;
+        this.binding = binding;
     }
 
-    public void setData(List data) {
+    public void setData(List<T> data) {
         this.data = data;
         notifyDataSetChanged();
     }
 
     @Override
     public BindingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new BindingViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), itemLayoutId, parent, false).getRoot());
+        return new BindingViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), binding.getLayoutItemId(), parent, false).getRoot());
     }
 
     @Override
     public void onBindViewHolder(BindingViewHolder holder, int position) {
-        holder.getBinding().setVariable(bindingVariableId, data.get(position));
+        holder.getBinding().setVariable(binding.getBoundVariableId(), data.get(position));
         holder.getBinding().executePendingBindings();
     }
 

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="popularVidsViewModel"
-            type="com.lex.vinepopular.models.PopularVidsViewModel" />
+            type="com.lex.vinepopular.viewmodels.PopularVidsViewModel" />
     </data>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/popular_grid_recycler_view"

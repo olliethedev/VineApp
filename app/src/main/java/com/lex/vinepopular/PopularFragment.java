@@ -13,8 +13,8 @@ import com.android.volley.VolleyError;
 import com.lex.vinepopular.adapters.BindingAdapter;
 import com.lex.vinepopular.managers.ApiManager;
 import com.lex.vinepopular.models.PopularVidsModel;
-import com.lex.vinepopular.models.PopularVidsViewModel;
 import com.lex.vinepopular.requests.BaseRequest;
+import com.lex.vinepopular.viewmodels.PopularVidsViewModel;
 import com.lex.vinepopular.vinepopular.R;
 import com.lex.vinepopular.vinepopular.databinding.FragmentPopularBinding;
 

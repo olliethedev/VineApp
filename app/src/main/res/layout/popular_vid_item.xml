@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.lex.vinepopular.vinepopular.PopularFragment">
+    tools:context="com.lex.vinepopular.PopularFragment">
 
     <data>
         <variable
             name="recordViewModel"
-            type="com.lex.vinepopular.vinepopular.models.RecordViewModel" />
+            type="com.lex.vinepopular.models.RecordViewModel" />
     </data>
 
     <android.support.v7.widget.CardView
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.lex.vinepopular.vinepopular.views.SquareImageView
+            <com.lex.vinepopular.views.SquareImageView
                 android:id="@+id/item_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

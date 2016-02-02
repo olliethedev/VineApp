@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular.models;
+package com.lex.vinepopular.models;
 
 import com.google.gson.annotations.SerializedName;
 

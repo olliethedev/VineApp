@@ -1,29 +1,29 @@
-package com.lex.vinepopular.vinepopular.views;
+package com.lex.vinepopular.views;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 
 /**
- * Created by Oleksiy on 1/31/2016.
+ * Created by Oleksiy on 2/1/2016.
  */
-public class SquareRelativeLayout extends RelativeLayout {
-    public SquareRelativeLayout(Context context) {
+public class SquareImageView extends ImageView {
+    public SquareImageView(Context context) {
         super(context);
     }
 
-    public SquareRelativeLayout(Context context, AttributeSet attrs) {
+    public SquareImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SquareRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public SquareRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

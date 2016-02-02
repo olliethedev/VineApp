@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular.requests;
+package com.lex.vinepopular.requests;
 
 import android.util.Log;
 

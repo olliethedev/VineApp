@@ -1,11 +1,11 @@
-package com.lex.vinepopular.vinepopular.managers;
+package com.lex.vinepopular.managers;
 
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.lex.vinepopular.vinepopular.MyApplication;
-import com.lex.vinepopular.vinepopular.models.PopularVidsModel;
-import com.lex.vinepopular.vinepopular.requests.BaseRequest;
+import com.lex.vinepopular.MyApplication;
+import com.lex.vinepopular.models.PopularVidsModel;
+import com.lex.vinepopular.requests.BaseRequest;
 
 
 /**

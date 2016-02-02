@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular.adapters;
+package com.lex.vinepopular.adapters;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;

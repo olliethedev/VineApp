@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular.models;
+package com.lex.vinepopular.models;
 
 import android.databinding.ObservableField;
 import android.view.View;

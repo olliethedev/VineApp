@@ -1,10 +1,12 @@
-package com.lex.vinepopular.vinepopular;
+package com.lex.vinepopular;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
+
+import com.lex.vinepopular.vinepopular.R;
 
 public class MainActivity extends AppCompatActivity implements BaseFragment.OnRefreshDoneListener {
     private static int FRAG_TAG = 0;

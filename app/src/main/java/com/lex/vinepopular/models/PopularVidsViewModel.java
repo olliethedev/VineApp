@@ -1,14 +1,14 @@
-package com.lex.vinepopular.vinepopular.models;
+package com.lex.vinepopular.models;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.ObservableField;
 import android.support.v7.widget.GridLayoutManager;
 
+import com.lex.vinepopular.MyApplication;
+import com.lex.vinepopular.adapters.ItemBinder;
 import com.lex.vinepopular.vinepopular.BR;
-import com.lex.vinepopular.vinepopular.MyApplication;
 import com.lex.vinepopular.vinepopular.R;
-import com.lex.vinepopular.vinepopular.adapters.ItemBinder;
 
 import java.util.ArrayList;
 import java.util.List;

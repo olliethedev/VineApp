@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular.adapters;
+package com.lex.vinepopular.adapters;
 
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
@@ -16,11 +16,12 @@ public class Bindings {
     public static void showItemsList(RecyclerView recyclerView, List items, ItemBinder itemBinding, RecyclerView.LayoutManager layoutManager) {
 
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new com.lex.vinepopular.vinepopular.adapters.BindingAdapter(items, itemBinding.getLayoutItemId(), itemBinding.getBindId()));
+        recyclerView.setAdapter(new com.lex.vinepopular.adapters.BindingAdapter(items, itemBinding.getLayoutItemId(), itemBinding.getBindId()));
     }
 
     @android.databinding.BindingAdapter(value = {"imageUrl", "placeholder"}, requireAll = false)
     public static void loadImage(ImageView imageView, String imageUrl, Drawable drawable) {
         Picasso.with(imageView.getContext()).load(imageUrl).placeholder(drawable).into(imageView);
     }
+
 }

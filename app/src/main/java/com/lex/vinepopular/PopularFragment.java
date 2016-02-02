@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular;
+package com.lex.vinepopular;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,12 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.lex.vinepopular.vinepopular.adapters.BindingAdapter;
+import com.lex.vinepopular.adapters.BindingAdapter;
+import com.lex.vinepopular.managers.ApiManager;
+import com.lex.vinepopular.models.PopularVidsModel;
+import com.lex.vinepopular.models.PopularVidsViewModel;
+import com.lex.vinepopular.requests.BaseRequest;
+import com.lex.vinepopular.vinepopular.R;
 import com.lex.vinepopular.vinepopular.databinding.FragmentPopularBinding;
-import com.lex.vinepopular.vinepopular.managers.ApiManager;
-import com.lex.vinepopular.vinepopular.models.PopularVidsModel;
-import com.lex.vinepopular.vinepopular.models.PopularVidsViewModel;
-import com.lex.vinepopular.vinepopular.requests.BaseRequest;
 
 
 public class PopularFragment extends BaseFragment {

@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular;
+package com.lex.vinepopular;
 
 import android.app.Application;
 import android.content.Context;

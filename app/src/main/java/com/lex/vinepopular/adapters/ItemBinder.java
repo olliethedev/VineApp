@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular.adapters;
+package com.lex.vinepopular.adapters;
 
 /**
  * Created by Oleksiy on 1/31/2016.

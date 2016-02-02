@@ -1,4 +1,4 @@
-package com.lex.vinepopular.vinepopular;
+package com.lex.vinepopular;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
